@@ -4,6 +4,10 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
 import org.hamcrest.core.Is;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,7 +41,13 @@ public class MokitoTest {
 			int id = (int) invocation.getArguments()[0];
 			return new Player(id, "D", defaultStat);
 		});
+		List<String> names = Arrays.asList("jeong", "pro", "jdk", "java");
+		List<Integer> nums =  Arrays.asList(2,4,51,33,21);
 		
+		Stream<String> mid = names.stream().filter(x->x.contains("j"));
+		
+		nums.sort((a,b)-> a-b);
+
 				
 		int playerId = 5;
 		
