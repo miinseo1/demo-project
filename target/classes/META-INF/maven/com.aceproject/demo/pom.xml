@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<artifactId>demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>demo</name>
+	<description>Demo project for Spring Boot</description>
+
+	<!-- spring이 아닌 별도의 parent 사용 -->
+	<parent>
+		<groupId>com.aceproject</groupId>
+		<artifactId>aceproject</artifactId>
+		<version>2.0.0-SNAPSHOT</version>
+	</parent>
+
+
+	<properties>
+		<!-- <java.version>1.8</java.version> -->
+		<gamebox.version>1.0.2</gamebox.version>
+		<!-- 사용할 모듈의 원하는 버전 등록! -->
+		<gamebox-orm-jdbc.version>0.0.13-SNAPSHOT</gamebox-orm-jdbc.version>
+		<gamebox-db.version>0.0.13-SNAPSHOT</gamebox-db.version>
+		<gamebox-api.version>1.0.6-SNAPSHOT</gamebox-api.version>
+		<gamebox-utils.version>0.0.8-SNAPSHOT</gamebox-utils.version>
+	</properties>
+
+	<dependencyManagement>
+		<!-- gamebox 모듈 사용을 위해 추가 -->
+		<dependencies>
+			<dependency>
+				<groupId>com.aceproject</groupId>
+				<artifactId>gamebox</artifactId>
+				<version>${gamebox.version}</version>
+				<type>pom</type>
+				<!-- dependdengyManagement에 명시된 모듈 dependency 가져 -->
+				<scope>import</scope>
+			</dependency>
+			<!-- 버전 고정을 위해 추가 -->
+			<dependency>
+				<groupId>com.aceproject</groupId>
+				<artifactId>gamebox-db</artifactId>
+				<version>${gamebox-db.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aceproject</groupId>
+				<artifactId>gamebox-api</artifactId>
+				<version>${gamebox-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aceproject</groupId>
+				<artifactId>gamebox-utils</artifactId>
+				<version>${gamebox-utils.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!-- gamebox-api 안에 포함되어 있으므로 제거 -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-web</artifactId> 
+			</dependency> -->
+
+		<!-- 의존성 추가 -->
+		<dependency>
+			<groupId>com.aceproject</groupId>
+			<artifactId>gamebox-orm-jdbc</artifactId>
+			<version>${gamebox-orm-jdbc.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aceproject</groupId>
+			<artifactId>gamebox-api</artifactId>
+		</dependency>
+
+		<!-- for test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- jar 패키지명 설정 -->
+		<finalName>demo</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- executable jar 사용을 위한 설정 추가. init.d service일 때만 valid 함 -->
+				<configuration>
+					<embeddedLaunchScriptProperties>
+						<!-- 실행될 jar 위치의 상대경로임 -->
+						<logFolder>log</logFolder>
+						<logFilename>demo_log.txt</logFilename>
+					</embeddedLaunchScriptProperties>
+					<executable>true</executable>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

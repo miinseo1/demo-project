@@ -1,0 +1,13 @@
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/config/DemoConfig.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/dao/jdbc/PlayerDaoJdbc.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/support/DemoDataDaoJdbcSupport.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/service/PlayerService.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/dao/PlayerDao.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/service/impl/PlayerServiceImpl.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/config/DemoDataConfig.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/model/Stat.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/DemoApplication.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/model/Player.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/support/DemoLogDaoJdbcSupport.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/api/PlayerController.java
+/Users/ace/Work/demo/src/main/java/com/aceproject/demo/config/DemoApiConfig.java
